@@ -1,0 +1,13 @@
+def validate_dna(dna_seq):  # Validar la secuencia acgt
+    seqm = dna_seq.upper()# Convertir la secuencia a mayúsculas
+    valid = seqm.count("A") + seqm.count("C") + seqm.count("G") + seqm.count("T") #Aquí se hace la validación de la cadena ya transformada 
+    #a mayúsculas para no tener conflictos en la identificación de elementos válidos porque si el elemento válido es A y se ingresa a, no se contará
+    # a como elemento válido aunque sean la misma letra
+
+    if valid == len(seqm): #Condicional para ver si la validación coincide con seqm
+        print(seqm)  # Muestra la secuencia transformada ya en upper
+        return True
+    else:
+        return False
+
+validate_dna("ataggtgcctgtatgctagagatctcg") #validate es para validar la cadena que se ingresa
