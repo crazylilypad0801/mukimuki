@@ -1,0 +1,32 @@
+def validate_dna(dna_seq):  # Validar la secuencia ACGT
+    seqm = dna_seq.upper()  # Convertir la secuencia a mayúsculas
+    valid = seqm.count("A") + seqm.count("C") + seqm.count("G") + seqm.count("T")  # Validar la secuencia
+
+    if valid == len(seqm):  # Si todos los caracteres son válidos 
+        return True #verdadero
+    else:
+        return False #falso
+
+# Tomar las secuencias del usuario
+cadena1 = input("Ingrese la cadena 1: ")
+cadena2 = input("Ingrese la cadena 2: ")
+
+# Validar ambas secuencias antes de compararlas y convertirlas en mayúsculas para no tener conflictos en la comparación
+if validate_dna(cadena1) and validate_dna(cadena2):
+    cadenita1 = cadena1.upper()
+    cadenita2 = cadena2.upper()
+    print("La cadena 1 es válida: "+cadenita1)
+    print("La cadena 2 es válida: "+cadenita2)
+
+    if len(cadenita1) == len(cadenita2):# Si amabas cadenas tienen la misma longitud
+      if (cadenita1 == cadenita2): #Usando el operador lógico de la igualdad absoluta  se comparan las cadenas
+        print("Las cadenas son iguales")
+      else:
+        print("Las cadenas son diferentes")
+        
+    else:
+      print("Las cadenas tienen diferentes longitudes y no se pueden comparar.") #este mensaje aparece solo si no se cumple la segunda condición, o sea 
+        #que las cadenas no tengan la misma longitud.
+else:
+    print("Cadena no válida. Por favor ingrese solo secuencias de ADN con A, C, G y T.") # este mensaje aparece solo si no se cumple la primera condición
+    #o sea que una o ambas cadenas no sean válidas.
